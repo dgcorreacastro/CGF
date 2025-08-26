@@ -1,0 +1,840 @@
+#bodyMapsNew {
+    display: flex;
+    position: relative;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 90vh;
+    width: 100%;
+    touch-action: manipulation;
+}
+
+#bodyMapsNew.view{
+    height: 100vh;
+    width: 100vw;
+}
+
+.loadingMapa {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loadingMapa .progressBar {
+    display: flex;
+    position: relative;
+    height: 20px;
+    width: 0%;
+    padding: 1em;
+    align-items: center;
+    justify-content: center;
+    transition: all cubic-bezier(.17,.67,.83,.67) 300ms;
+    align-self: flex-start;
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    background: rgb(255,26,0);
+    background: -moz-linear-gradient(top,  rgba(255,26,0,1) 0%, rgba(255,26,0,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(255,26,0,1) 0%,rgba(255,26,0,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,26,0,1) 0%,rgba(255,26,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff1a00', endColorstr='#ff1a00',GradientType=0 );
+}
+
+.loadingMapa .progressBar #progressNumber {
+    color: white;
+    z-index: 2;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#appMapaEuro{
+    opacity: 1;
+    transition: all 400ms;
+    height: 100%;
+    width: 100%;
+}
+
+#appMapaEuro.loading{
+    opacity: 0;
+}
+
+.horariosMapaNew > *{
+    scrollbar-width: auto;
+    scrollbar-color: #df1111 #ffffff;
+}
+
+
+.horariosMapaNew > *::-webkit-scrollbar {
+    width: 20px;
+}
+
+.horariosMapaNew > *::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.horariosMapaNew > *::-webkit-scrollbar-thumb {
+    background-color: #df1111;
+    border-radius: 0px;
+    border: 5px none #ff0000;
+}
+
+#telaRotaMapaEuro {
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    overflow: hidden !important;
+    background-color: #e6e5e1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
+
+#telaRotaMapaEuro.view, #telaRotaMapaEuro.view > *{
+    cursor: none;
+}
+
+.mapaEuroNewTitle {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: .5em 1em;
+    transform: scale(1.8);
+    transform-origin: top center;
+    transition: all 300ms;
+    margin: auto;
+    margin-top:0;
+    border-radius: 10px;
+    color: black;
+    background: rgb(254,255,232);
+    background: -moz-linear-gradient(top,  rgba(254,255,232,1) 0%, rgba(214,219,191,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%);
+    background: linear-gradient(to bottom,  rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 );
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.mapaEuroNew {
+    position: absolute;
+    display: flex;
+    padding: 1em;
+    margin: 1em 2em;
+    background: white;
+    background-origin: content-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    transition: all 300ms;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    cursor: default;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.mapaEuroNew.editando{
+    cursor: move;
+}
+
+.mapaEuroNew.editando > *{
+    pointer-events: none !important;
+}
+
+
+.mapaEuroNew .logosPontos {
+    position: absolute;
+    bottom: 0em;
+    right: 1em;
+    height: 80px;
+}
+
+.pontoMapaEuroNew, .pontoMapaEuroNewTeste {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    width: 110px;
+    height: 110px;
+    transition: all 500ms;
+    -webkit-border-radius: 55px;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius: 55px;
+    -moz-border-radius-topleft: 0;
+    border-radius: 55px;
+    border-top-left-radius: 0;
+    border: 2px solid rgba(128,128,128,0);
+    text-align: center;
+    padding: .5em;
+    background: rgb(255,48,25);
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%, rgba(207,4,4,1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);
+    background: radial-gradient(ellipse at center,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=1 );
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.pontoMapaEuroNewTeste {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.pontoMapaEuroNew.editando{
+    z-index: 10000;
+    transition: all 0ms !important;
+}
+
+.pontoMapaEuroNew .addHoraForm {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255,255,255, .8);
+    -webkit-border-bottom-right-radius: 55px;
+    -webkit-border-bottom-left-radius: 55px;
+    -moz-border-radius-bottomright: 55px;
+    -moz-border-radius-bottomleft: 55px;
+    border-bottom-right-radius: 55px;
+    border-bottom-left-radius: 55px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pontoMapaEuroNew .addHoraForm .inputHolder {
+    display: flex;
+    width: 100%;
+    padding: .5em;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.pontoMapaEuroNew .addHoraForm .optionHolder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    gap: 1em;
+}
+
+.pontoMapaEuroNew .addHoraForm .optionHolder div{
+    display: flex;
+}
+
+.pontoMapaEuroNew .addHoraForm .optionHolder label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: .5em;
+    gap: .5em;
+    border: 2px groove darkslategray;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.pontoMapaEuroNew .addHoraForm .optionHolder .horaOptCheck{
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    padding: 1em;
+}
+
+
+.pontoMapaEuroNew .addHoraForm > * , .pontoMapaEuroNew .addHoraForm .btn{
+    font-size: 30px !important;
+}
+
+.pontoMapaEuroNew .addHoraForm .btn{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.pontoMapaEuroNew .addHoraForm label[for="horario"] {
+    width: 100%;
+    padding: .5em;
+    color: white !important;
+    background: rgb(255,48,25);
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%, rgba(207,4,4,1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);
+    background: radial-gradient(ellipse at center,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=1 );
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+    margin-bottom:1em;
+}
+
+.pontoMapaEuroNew .addHoraForm input[type="time"]{
+    width: 250px;
+    height: 80px;
+    font-size: 40px;
+    padding: 1em;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.pontoMapaEuroNew .addHoraForm button  {
+    height: 80px;
+}
+
+.pontoMapaEuroNew .nomePonto {
+    position: relative;
+    display: flex;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.pontoMapaEuroNew .nomePonto input {
+    margin: auto;
+    text-align: center;
+    height: 80%;
+    width: fit-content;
+    padding: .5em;
+    overflow: hidden;
+}
+
+.pontoMapaEuroNew .dadosPonto {
+    display: flex;
+    width: 99.5%;
+    max-height: 0;
+    z-index: -1;
+    overflow: hidden;
+    transition: all 500ms;
+    -webkit-border-bottom-right-radius: 55px;
+    -webkit-border-bottom-left-radius: 55px;
+    -moz-border-radius-bottomright: 55px;
+    -moz-border-radius-bottomleft: 55px;
+    border-bottom-right-radius: 55px;
+    border-bottom-left-radius: 55px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background: rgb(254,255,232);
+    background: -moz-linear-gradient(top,  rgba(254,255,232,1) 0%, rgba(214,219,191,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%);
+    background: linear-gradient(to bottom,  rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 );
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew {
+    display: none;
+    margin: .5em 0 .5em 1em;
+    width: 101%;
+    max-height: 0;
+    align-self: flex-start;
+    grid-template-columns: 250px auto;
+    grid-template-rows: auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms;
+    box-shadow: rgba(14, 30, 37, 0.336) 0px 2px 4px 0px, rgba(14, 30, 37, 0.603) 0px 2px 16px 0px;
+}
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew.show {
+    display: grid;
+    max-height: 92px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew .tituloHorarios {
+    display: flex;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+                0px 8px 13px rgba(0,0,0,0.1),
+                0px 18px 23px rgba(0,0,0,0.1);
+    font-size: 30px;
+    z-index: 2;
+    background: rgb(255,48,25);
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%, rgba(207,4,4,1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);
+    background: radial-gradient(ellipse at center,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=1 );
+    height: 92px;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    border-top: 5px groove red;
+}
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew .tituloHorarios .addHorario {
+    position: absolute;
+    right: -20px;
+    border: 2px solid darkgray;
+    padding: .5em .2em;
+    cursor: pointer;
+    border-radius: 5px;
+    background: rgb(98,125,77);
+    background: -moz-linear-gradient(-45deg,  rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%);
+    background: -webkit-linear-gradient(-45deg,  rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
+    background: linear-gradient(135deg,  rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#627d4d', endColorstr='#1f3b08',GradientType=1 );
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew ul {
+    display: flex;
+    width: 100%;
+    align-self: flex-start;
+    height: calc(100% - 10px);
+    border-top: 5px groove red;
+    flex-direction: row;
+    padding: .5em;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 1em;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 5%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, transparent 95%);
+}
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew ul li {
+    color: white;
+    padding: .2em .5em;
+    list-style: none !important;
+    font-size: 30px;
+    font-weight: 900;
+    text-shadow: 2px 2px 0px #000000, 2px 0px 0px #000000, 2px -2px 0px #000000, 2px -2px 0px #000000, -2px 2px 0px #000000, -2px -2px 0px #000000;
+    -webkit-border-radius: 20px;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius: 20px;
+    -moz-border-radius-topleft: 0;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew ul li.horaVerde, .legendasMapaNew span.horaVerde::before {
+    background: rgb(64,150,30);
+    background: -moz-linear-gradient(top,  rgba(64,150,30,1) 0%, rgba(41,216,52,1) 50%, rgba(61,196,31,1) 51%, rgba(129,226,122,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(64,150,30,1) 0%,rgba(41,216,52,1) 50%,rgba(61,196,31,1) 51%,rgba(129,226,122,1) 100%);
+    background: linear-gradient(to bottom,  rgba(64,150,30,1) 0%,rgba(41,216,52,1) 50%,rgba(61,196,31,1) 51%,rgba(129,226,122,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40961e', endColorstr='#81e27a',GradientType=0 );
+}
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew ul li.horaAzul, .legendasMapaNew span.horaAzul::before {
+    background: rgb(30,87,153);
+    background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(41,137,216,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%);
+    background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+} 
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew ul li.horaAmarelo, .legendasMapaNew span.horaAmarelo::before {
+    background: rgb(252,234,187);
+    background: -moz-linear-gradient(top,  rgba(252,234,187,1) 0%, rgba(252,205,77,1) 50%, rgba(248,181,0,1) 51%, rgba(251,223,147,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%);
+    background: linear-gradient(to bottom,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 );
+}
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew ul li:first-of-type {
+    margin-left: 1em;
+}
+
+
+.pontoMapaEuroNew .dadosPonto .horariosMapaNew ul li:last-of-type {
+    margin-right: 2.5em;
+}
+
+.pontoMapaEuroNew .closePonto {
+    position: absolute;
+    transition: all 300ms;
+    color: white;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+    visibility: hidden;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.loaderMapaEuroNew {
+    display: none;
+    color: #ffffff;
+    font-size: 45px;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: absolute;
+    transform: translateZ(0);
+    animation: loaderMapaEuroNew1 1.7s infinite ease, loaderMapaEuroNew2 1.7s infinite ease;
+  }
+
+  .pontoMapaEuroNew .statusEditPonto {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 9;
+    background: white;
+    border: 3px solid red;
+    padding: .3em;
+    border-radius: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pontoMapaEuroNew.open .statusEditPonto{
+    width: auto;
+    height: auto;
+    font-size: 150px;
+    background: none;
+    border: 0;
+}
+
+.pontoMapaEuroNew .statusEditPonto.sucesso {
+    color:green;
+}
+
+.pontoMapaEuroNew .statusEditPonto.falha {
+    color:red;
+}
+  
+  @keyframes loaderMapaEuroNew1 {
+    0% {
+      box-shadow: 0 -0.83em 0 -0.4em,
+      0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    5%,
+    95% {
+      box-shadow: 0 -0.83em 0 -0.4em, 
+      0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    10%,
+    59% {
+      box-shadow: 0 -0.83em 0 -0.4em, 
+      -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, 
+      -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+    }
+    20% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+       -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, 
+       -0.749em -0.34em 0 -0.477em;
+    }
+    38% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+       -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, 
+       -0.82em -0.09em 0 -0.477em;
+    }
+    100% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 
+      0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+  }
+  
+  @keyframes loaderMapaEuroNew2 {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg) }
+  }
+   
+.pontoMapaEuroNew.open {
+    z-index: 999;
+    width: 80%;
+    height: auto;
+    border: 2px solid rgba(128,128,128,1);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    top: 15% !important;
+    left: 10% !important;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    border-top-right-radius: 0;
+}
+
+.pontoMapaEuroNew.open .nomePonto{
+    width: 100%;
+    height: 65px;
+    font-size: 40px !important;
+}
+
+.pontoMapaEuroNew.open .dadosPonto {
+    max-height: 100%;
+    padding-bottom: 4em;
+    padding-top: 1.5em;
+}
+
+.pontoMapaEuroNew.open .erroPonto, .pontoMapaEuroNew .erroPonto{
+    position:absolute;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms;
+}
+.pontoMapaEuroNew.open .erroPonto.show{
+    position: relative;
+    display: flex;
+    background: white;
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+    height: 100px;
+    padding: 2em;
+    margin: 2em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.pontoMapaEuroNew.open .closePonto {
+    right: .8em;
+    top: 15px;
+    font-size: 40px;
+    z-index: 2;
+    visibility: visible;
+    opacity: 1;
+}
+
+.legendasMapaNew {
+    position: fixed;
+    display: flex;
+    gap: 4.5em;
+    bottom: 0;
+    margin-bottom: -15%;
+    opacity: 0;
+    visibility: hidden;
+    width: 60%;
+    height: 15%;
+    padding: 1em;
+    padding-left: calc(1em + 45px);
+    z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -10px 15px;
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(241,241,241,1) 50%, rgba(225,225,225,1) 51%, rgba(246,246,246,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
+    -webkit-border-top-left-radius: 30px;
+    -webkit-border-top-right-radius: 30px;
+    -moz-border-radius-topleft: 30px;
+    -moz-border-radius-topright: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    transition: all cubic-bezier(0,.54,.53,1) .5s;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    z-index:10001;
+}
+
+.legendasMapaNew span {
+    font-size: 25px;
+    font-weight: 900;
+    color: darkslategrey;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.legendasMapaNew span::before {
+    position: absolute;
+    left: -45px;
+    content: '';
+    width: 40px;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.legendasMapaNew.show{
+    margin-bottom: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.horarioLegenda {
+    display: block;
+    padding: .3em;
+    position: absolute;
+    color: white;
+    width: fit-content;
+    font-size: 1.5vw;
+    z-index: 999;
+    font-weight: 900;
+    border: 1px solid gray;
+    background: rgb(69,72,77);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    background: -moz-linear-gradient(top,  rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 );
+}
+
+.backPontoOpen {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255,.5);
+    z-index: 6;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.circlePontoMapaEuroNew {
+	position: fixed;
+    height: 20vw;
+	width: 20vw;
+    z-index: 2;
+}
+  
+.circlePontoMapaEuroNew .wave {
+position: absolute;
+left: 7%;
+top: 7%;
+width: 86%;
+height: 86%;
+background: rgba(32,150,243,0.4);
+border-radius: 50%;
+opacity: 0;
+animation: radarWave cubic-bezier(0,.54,.53,1) 3s 0s;
+animation-iteration-count: 1;
+}
+
+.circlePontoMapaEuroNew .wave::after {
+    content: '';
+    position: absolute;
+    left: 7%;
+    top: 7%;
+    width: 86%;
+    height: 86%;
+    background: rgba(32,150,243,0.4);
+    border-radius: 50%;
+    opacity: 0;
+    animation: radarWave cubic-bezier(0,.54,.53,1) 3s 0.1s;
+    animation-iteration-count: 1;
+}
+
+.menuPonto {
+    position: absolute;
+    display: none;
+    right: -160px;
+    bottom: -20px;
+    width: max-content;
+    min-width: 225px;
+    z-index: 10000;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 20px;
+    font-weight: bold;
+    gap: .5em;
+    padding: .5em;
+    color: #204e5e;
+    border-radius: 10px;
+    border: 4px solid rgb(255,48,25);
+    background: rgb(254,255,232);
+    background: -moz-linear-gradient(top,  rgba(254,255,232,1) 0%, rgba(214,219,191,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%);
+    background: linear-gradient(to bottom,  rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 );
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.pontoMapaEuroNew.menuOpen{
+    z-index:10000;
+}
+
+.pontoMapaEuroNew.menuOpen .menuPonto{
+    display: flex;
+}
+
+
+.menuPonto span {
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5em;
+    padding: .5em;
+    border-bottom: 2px groove black;
+    cursor:pointer;
+    transition: all 300ms;
+}
+
+.menuPonto span:hover {
+    background: #204e5e;
+    color:white;
+}
+
+@keyframes radarWave{
+	0% {
+	    opacity: 0;
+      transform: scale(0);
+	}
+	5% {
+		background: rgba(32,150,243,0.4);
+    opacity: 1;
+	}
+	100% {
+	 	transform:  scale(1);
+	 	background: rgba(32,150,243,0.0);
+	 }
+}

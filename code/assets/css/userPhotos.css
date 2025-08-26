@@ -1,0 +1,506 @@
+.userPhoto {
+    z-index: 2;
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    left: 90%;
+    top: -5em;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 4px solid #ffc107;
+    background-origin: content-box;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 350ms;
+    border-radius: 100%;
+}
+
+.userPhoto span{
+    color: white;
+    background-color: #242832;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: .2em;
+    border-radius: .2em;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20%);
+    transition: all 350ms;
+}
+
+.userPhoto:hover > span, .userPhoto .showPhotoMsg {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.userPhoto .monitorTag {
+    position: absolute;
+    bottom: -1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .5em;
+    background: #304352;
+    text-shadow: 2px 2px 3px rgb(0 0 0 / 30%);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    font-weight: bold;
+    padding: .5em;
+    letter-spacing: .2em;
+    font-size: 12px;
+    color: #ffc107;
+    transition: all 250ms;
+}
+
+.userPhoto .monitorTag i {
+    font-size: 20px; 
+}
+
+.userPhoto .monitorTag.hide{
+    opacity: 0;
+}
+
+.userPhotoAct {
+    position: fixed;
+    display: flex;
+    left: 50%;
+    top: 50%;
+    width: fit-content;
+    height: max-content;
+    background: white;
+    color: #2f3143;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    padding: 2.5em;
+    border-radius: 10px;
+    border: 2px solid rgb(37,38,52);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userPhotoAct.appPhoto{
+    overflow: hidden !important;
+}
+
+.userPhotoAct input[type=file]{
+    display: none !important;
+}
+
+.userPhotoAct label{
+    margin-bottom: 0 !important;
+}
+
+.userPhotoAct #textLoader {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 2em;
+    bottom: 0;
+    color: black;
+    font-size: 14px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.camera {
+    position: fixed;
+    display: flex;
+    left: 50%;
+    top: 50%;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,.5);
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    padding: 1em;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.camera .cameraCountDown {
+    display: flex;
+    z-index: 5;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.camera h5 {
+    position: absolute;
+    z-index: 2;
+    transform: translateY(-810%);
+    color: white;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+.camera .cameraCountDown h1 {
+    position: absolute;
+    font-size: 2000% !important;
+    color: #FFFFFF;
+    text-shadow: 0px 3px 4px #000000;
+    transition: all 200ms;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.camera .cameraCountDown h1.ativo {
+    transform: scale(5);
+    opacity: 0;
+}
+
+.camera .cameraCountDown h1.hide {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.userPhotoAct.show, .camera.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.camera #video {
+    border: 2px solid black;
+    border-radius: 5px;
+    background: black;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: 350ms;
+    opacity: 1;
+}
+
+.camera canvas {
+    position: absolute;
+}
+
+.camera #video.Pause{
+    opacity: 0;
+}
+
+.camera .scoreUserPhoto{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: red;
+    height: 1.5em;
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: all 300ms;
+}
+
+.camera .btn, #cancelPicture {
+    position: absolute;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.camera .btn#cancelTakePicture{
+    top: 5%;
+}
+
+.camera .btn#confirmUserPic{
+    bottom: -10%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.camera .btn#confirmUserPic.show{
+    bottom: 6%;
+    opacity: 1;
+    visibility: visible;
+}
+
+#cancelPicture {
+    top:-10%;
+}
+
+.camera .btn:not(.disabled):hover, .userPhotoAct .btn:not(.disabled):hover {
+    transform: scale(1.1);
+}
+
+.camera .btn i, .userPhotoAct .btn i {
+    display: block !important;
+    margin: 0;
+}
+
+.camera .btn, .userPhotoAct .btn {
+    transition: all 350ms;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.camera .tokedPhotoContainer {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    width: 600px;
+    height: 450px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.camera .tokedPhotoContainer.show {
+    opacity: 1;
+    visibility: visible;
+} 
+
+.camera .tokedPhotoContainer .tokedPhotoImgContainer {
+    display: flex;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.camera .tokedPhotoContainer .tokedPhotoImgContainer img{
+    border: 2px solid black;
+    border-radius: 5px;
+    background: black;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.camera .tokedPhotoContainer .tokedPhotoImgContainer #redoPicture {
+    top: -8%;
+}
+
+.userPhotoAct .allPics {
+    display: flex;
+    width: 100%;
+    padding: .5em;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2em;
+    transition: all 350ms;
+    margin-bottom: 10px;
+}
+
+.userPhotoAct .allPics .photoContainer {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    width: 120px;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 4px solid #ffc107;
+    background-origin: content-box;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 350ms;
+    margin-top: 1em;
+    white-space: nowrap;
+}
+
+.userPhotoAct .allPics.egPic.egPicHide{
+    opacity: .2;
+    pointer-events: none;
+}
+
+
+.userPhotoAct .allPics .photoContainer .userPhotoLoader {
+    position: absolute;
+    top: -1.5em;
+    left: 0;
+    border-radius: 5px;
+    background: red;
+    height: .5em;
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: all 300ms;
+}
+
+.userPhotoAct .allPics .photoContainer span {
+    position: absolute;
+    bottom: -30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.userPhotoAct .paxQr {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    position: absolute;
+    z-index: 10;
+    width: 90%;
+    height: 90%;
+    background: white;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    gap: 1em;
+    justify-items: center;
+    transition: all 0ms !important;
+}
+
+.userPhotoAct .paxQr.open {
+    opacity: 1;
+    visibility: visible;
+} 
+
+.userPhotoAct .paxQr .iframeQrUser{
+    width: 100%;
+    height: 100%;
+    border: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+
+	.userPhoto {
+        left: 50%;
+        width: 100px;
+        height: 100px;
+    }
+
+    .userPhoto .monitorTag {
+        transform: scale(.7);
+    }
+
+    .userPhotoAct{
+        height: 90vh;
+        justify-content: flex-start;
+    }
+
+    .userPhotoAct:not(.appPhoto){
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .userPhotoAct .allPics {
+        flex-wrap: wrap;
+        gap: 2.5em;
+    }
+
+    #cancelPicture {
+        top:10px;
+        /* position: relative; */
+    }
+    
+
+}
+
+@media (orientation: landscape) and (max-width: 700px){ 
+
+    .userPhoto {
+        left: 50%;
+        top: -5.8em;
+        width: 120px;
+        height: 120px;
+    }
+
+    .userPhoto .monitorTag {
+        transform: scale(.7);
+    }
+
+    .userPhotoAct .allPics .photoContainer {
+       
+        width: 100px;
+        height: 100px;
+        
+    }
+
+    .userPhotoAct .allPics .photoContainer span {
+        font-size: 11px;
+    }
+
+    .camera .btn#cancelTakePicture {
+        right:5%;
+        top: 12%;
+    }
+
+    .camera .btn#confirmUserPic.show {
+        right:5%;
+        bottom: 12%;
+    }
+
+    .camera .scoreUserPhoto, .userPhotoAct .userPhotoLoader{
+        height: .8em;
+    }
+
+    .camera .tokedPhotoContainer .tokedPhotoImgContainer #redoPicture {
+        top: 0%;
+    }
+    
+    #cancelPicture {
+        top: 0;
+        right: -5%;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+.userPhotoBackDrop {
+    position: fixed;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    background-color: rgba(255,255,255,.2);
+    transition: all 350ms;
+}
+
+.userPhoto > *, .userPhotoAct > *, .camera > *, .uploadPhotos > * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.warnPicQuality {
+    position: absolute;
+    padding: .5em;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    background: aliceblue;
+    color: black;
+    border-radius: 1em;
+    border: 3px solid #ffc107;
+    width: 120%;
+    min-width: 120%;
+    bottom: 15%;
+    z-index: -1;
+}

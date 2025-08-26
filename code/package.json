@@ -1,0 +1,30 @@
+{
+  "name": "package_name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://#GIT_URL#"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://#GIT_ISSUES_URL#"
+  },
+  "homepage": "https://#GIT_HOMEPAGE_URL#",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jimp": "^0.22.12",
+    "moment-timezone": "^0.5.45",
+    "mssql": "^10.0.2",
+    "mysql2": "^3.9.7",
+    "nodemon": "^3.1.0"
+  }
+}

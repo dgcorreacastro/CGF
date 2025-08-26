@@ -1,0 +1,1044 @@
+.chartDoisContainer {
+    display: grid;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5em;
+    margin-bottom: 22em;
+    height: 400px;
+    grid-template-columns: 1fr 12fr;
+    justify-items: start;
+    align-items: start;
+    justify-content: start;
+    font-size: 12px;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.chartDoisContainer.carregando #carrega {
+    display: flex;
+}
+
+.chartDoisContainer #carrega {
+    position: absolute;
+    z-index: 2;
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.chartNewDois {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: .2em;
+    transition: all 300ms;
+    align-items: flex-end;
+}
+
+.chartNewDois .marcaChart {
+    position: absolute;
+    display: flex;
+    width: 105%;
+    height: 105%;
+    top: -2.5%;
+    left: -5%;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.chartNewDois .marcaChart .linhaContainer {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.chartNewDois .marcaChart .linhaContainer:first-of-type {
+    margin-top: -.6em;
+}
+
+.chartNewDois .marcaChart .linhaContainer:last-of-type {
+    margin-top: .4em;
+}
+
+.chartNewDois .marcaChart .linhaContainer .linha {
+    position: absolute;
+    height: 2px;
+    width: 97%;
+    top: calc(50% - 1px);
+    left: 3%;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.chartNewDois .marcaChart .linhaContainer span {
+    margin-right: 97.5%;
+    width: 100%;
+    text-align: right;
+}
+
+.chartNewDois .linhaChart {
+    display: flex;
+    position: relative;
+    height: 100%;
+    flex-basis: 5%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 70px;
+    padding: .2em 0 0;
+    overflow: visible;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.4) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.4) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#66ffffff',GradientType=0 );
+}
+
+.chartNewDois .linhaChart.umaLinha{
+    flex-basis: 3%;
+    max-width: 35px;
+}
+
+.chartNewDois .linhaChart .legendaLinha {
+    position: absolute;
+    text-align: right;
+    transform-origin: center;
+    padding: 0 .5em;
+    width: 250px;
+    height: 5%;
+    transform: rotate(295deg) translate(-52%, 45%);
+    font-size: 14px;
+    z-index: 1;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 100%);
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.2) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.2) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#33ffffff',GradientType=0 );
+}
+
+.chartNewDois .linhaChart .barraLinha {
+    display: flex;
+    padding: .2em;
+    width: 40%;
+    height: 0%;
+    position: relative;
+    transition: all cubic-bezier(0,.54,.53,1) .5s;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background: rgb(157,213,58);
+    background: -moz-linear-gradient(left,  rgba(157,213,58,1) 0%, rgba(161,213,79,1) 50%, rgba(128,194,23,1) 51%, rgba(124,188,10,1) 100%);
+    background: -webkit-linear-gradient(left,  rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%);
+    background: linear-gradient(to right,  rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#7cbc0a',GradientType=1 );
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 2;
+}
+
+.chartNewDois .linhaChart .barraLinha.medioBarChart {
+    background: rgb(252,234,187); 
+    background: -moz-linear-gradient(left,  rgba(252,234,187,1) 0%, rgba(252,205,77,1) 50%, rgba(248,181,0,1) 51%, rgba(251,223,147,1) 100%); 
+    background: -webkit-linear-gradient(left,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); 
+    background: linear-gradient(to right,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=1 ); 
+}
+
+.chartNewDois .linhaChart .barraLinha.altoBarChart {
+    background: rgb(248,80,50); 
+    background: -moz-linear-gradient(left,  rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%); 
+    background: -webkit-linear-gradient(left,  rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%); 
+    background: linear-gradient(to right,  rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=1 ); 
+}
+
+.chartNewDois .linhaChart.umaLinha .barraLinha{
+    width: 70%;
+}
+
+.chartNewDois .linhaChart .barraLinha b {
+    position: absolute;
+    padding: 0 .2em;
+    color: black;
+    bottom: 101.6%;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    -moz-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+    font-size: 12px;
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(241,241,241,1) 50%, rgba(225,225,225,1) 51%, rgba(246,246,246,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
+}
+
+.chartNew {
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 2em;
+    font-size: 14px;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+    transition: all 300ms;
+}
+
+.chartNew.carregando{
+    min-height: 100px;
+}
+
+.chartNew .chartDia {
+    display: flex;
+    position: relative;
+    width: 500px;
+    min-height: 300px;
+    max-height: 300px;
+    overflow: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    border-radius: 10px;
+    background: rgb(238,238,238);
+    background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
+    background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+}
+
+  
+.chartNew .chartDia::-webkit-scrollbar {
+width: 16px;
+}
+
+.chartNew .chartDia::-webkit-scrollbar-track {
+background: #054a4a;
+}
+
+.chartNew .chartDia::-webkit-scrollbar-thumb {
+background-color: #fff;
+border-radius: 10px;
+border: 0;
+}
+
+.chartNew .chartDia::-webkit-scrollbar-thumb:hover{
+background-color: darkgray;
+}
+
+.chartNew .chartDia h4 {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    margin-bottom: 1em;
+    font-size: 16;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: .5em;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(241,241,241,1) 50%, rgba(225,225,225,1) 51%, rgba(246,246,246,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
+}
+
+.chartNew .chartDia .linhaDia {
+    display: grid;
+    position: relative;
+    width: 95%;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: auto;
+    justify-content: start;
+    align-items: center;
+    margin: .2em 0;
+    background: rgba(255,255,255,0);
+    opacity: 1;
+    transition: all 300ms;
+    grid-gap: 0px;
+    color: black;
+    border-bottom: 2px groove orange;
+}
+
+.chartNew .chartDia .linhaDia .barraLinha {
+    display: flex;
+    padding: .2em .5em;
+    max-width: 100%;
+    width: 0%;
+    transition: all cubic-bezier(0,.54,.53,1) .5s;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background: rgb(157,213,58);
+    background: -moz-linear-gradient(top,  rgba(157,213,58,1) 0%, rgba(161,213,79,1) 50%, rgba(128,194,23,1) 51%, rgba(124,188,10,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%);
+    background: linear-gradient(to bottom,  rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#7cbc0a',GradientType=0 );
+}
+
+.chartNew .chartDia .linhaDia .barraLinha.medioBarChart {
+    background: rgb(252,234,187); 
+    background: -moz-linear-gradient(top,  rgba(252,234,187,1) 0%, rgba(252,205,77,1) 50%, rgba(248,181,0,1) 51%, rgba(251,223,147,1) 100%); 
+    background: -webkit-linear-gradient(top,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); 
+    background: linear-gradient(to bottom,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); 
+}
+
+.chartNew .chartDia .linhaDia .barraLinha.altoBarChart {
+    background: rgb(248,80,50); 
+    background: -moz-linear-gradient(top,  rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%); 
+    background: -webkit-linear-gradient(top,  rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%); 
+    background: linear-gradient(to bottom,  rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=0 );
+}
+
+.chartNew .chartDia .linhaDia .nomeLinha {
+    width: 100%;
+    padding: .5em;
+    text-align: right;
+    border-right: 2px groove orange;
+}
+
+.chartNew .chartDia .linhaDia.last {
+    position: sticky;
+    bottom: -.5em;
+    padding: .5em;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(241,241,241,1) 50%, rgba(225,225,225,1) 51%, rgba(246,246,246,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
+}
+
+.chartNew .chartDia .linhaDia.last .nomeLinha{
+    text-align: center;
+}
+
+.chartNew .chartDia .linhaDia.last .legendaDia {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: .2em;
+}
+
+.chartNew.carregando #carrega {
+    display: flex;
+}
+
+.chartNew #carrega {
+    position: absolute;
+    z-index: 2;
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.barChart {
+    display: flex;
+    position: relative;
+    width: 95%;
+    min-height: 100px;
+    max-height: 340px;
+    overflow: auto;
+    margin: 1em auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.barChart #carrega {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.barChart {
+    scrollbar-width: auto;
+    scrollbar-color: #ffffff rgba(255,255,255,0);
+}
+
+  
+.barChart::-webkit-scrollbar {
+width: 16px;
+}
+
+.barChart::-webkit-scrollbar-track {
+background: transparent;
+}
+
+.barChart::-webkit-scrollbar-thumb {
+background-color: #fff;
+border-radius: 10px;
+border: 0;
+}
+
+.barChart::-webkit-scrollbar-thumb:hover{
+background-color: darkgray;
+}
+
+.barChart .dado {
+    display: grid;
+    position: relative;
+    width: 98%;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto;
+    padding: 0;
+    justify-content: start;
+    align-items: center;
+    background: rgba(255,255,255,0);
+    opacity: 0;
+    transition: all 300ms;
+}
+
+.barChart .dado.carregado {
+    opacity: 1;
+    background: rgba(255,255,255,.1);
+}
+
+.barChart .dado .nome {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: .5em;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.barChart .dado .valor {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: .5em .5em .5em 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    border-left: 2px solid white;
+}
+
+.barChart #dadosLegenda {
+    font-size: 14px;
+    position: sticky;
+    bottom: -1px;
+    background: #054a4a;
+}
+
+.barChart .dado .valor.numeros {
+    justify-content: space-between;
+    padding: 0 .2em;
+    border-top: 2px solid white;
+}
+
+.barChart .dado .nome.numeros {
+    border-top: 2px solid white;
+    justify-self: flex-end;
+}
+
+.barChart .dado .valor .barra {
+    display: flex;
+    min-width: 0;
+    padding: .2em;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.4),
+             0px 8px 13px rgba(255, 255, 255, 0.1),
+             0px 18px 23px rgba(255, 255, 255, 0.1);
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all cubic-bezier(0,.54,.53,1) .7s;
+}
+
+.barChart .dado .valor .barra.altoBarChart {
+    background: rgb(248,80,50); 
+    background: -moz-linear-gradient(top,  rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%); 
+    background: -webkit-linear-gradient(top,  rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%); 
+    background: linear-gradient(to bottom,  rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=0 );
+}
+
+.barChart .dado .valor .barra.medioBarChart {
+    background: rgb(252,234,187); 
+    background: -moz-linear-gradient(top,  rgba(252,234,187,1) 0%, rgba(252,205,77,1) 50%, rgba(248,181,0,1) 51%, rgba(251,223,147,1) 100%); 
+    background: -webkit-linear-gradient(top,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); 
+    background: linear-gradient(to bottom,  rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); 
+}
+
+.barChart .dado .valor .barra.baixoBarChart {
+    background: rgb(157,213,58);
+    background: -moz-linear-gradient(top,  rgba(157,213,58,1) 0%, rgba(161,213,79,1) 50%, rgba(128,194,23,1) 51%, rgba(124,188,10,1) 100%); 
+    background: -webkit-linear-gradient(top,  rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%); 
+    background: linear-gradient(to bottom,  rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#7cbc0a',GradientType=0 ); 
+}
+
+
+.chartsContainer {
+    display: flex;
+    position: relative;
+    padding: .5em;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    width: 90%;
+    margin: 4em auto 10em auto;
+    gap: 2em;
+    flex-wrap: nowrap;
+}
+
+.chartsContainer.relPage{
+    padding: 0 !important;
+    margin: auto !important;
+}
+
+.barChartDash {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 1em;
+    width: 100%;
+    height: 180px;
+    position: relative;
+}
+
+.barChartDash .barras {
+    display: flex;
+    position: absolute;
+    width: 95%;
+    left: 5%;
+    height: 150px;
+    bottom: 30px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.barChartDash .barras .barra {
+    display: flex;
+    background: #4F7CAC;
+    padding: 0 1em;
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: center;
+    border-left: 1px groove #2e3442;
+    border-right: 1px groove #2e3442;
+    align-items: flex-start;
+    height: 0;
+    opacity: 0;
+    transition: all 350ms;
+}
+
+.barChartDash .barras .barra.show{
+    opacity: 1;
+}
+
+.barChartDash .datas {
+    display: flex;
+    position: absolute;
+    width: 95%;
+    height: 30px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.barChartDash .datas li {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.barChartDash .marcaChart {
+    position: absolute;
+    display: flex;
+    opacity: 0;
+    width: 100%;
+    margin-right: -50%;
+    height: 150px;
+    bottom: 30px;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    transition: all 500ms;
+}
+
+.barChartDash .marcaChart.loaded {
+    opacity: 1;
+    margin-right: 0%;
+}
+
+.barChartDash .marcaChart .linhaContainer {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.barChartDash .marcaChart .linha {
+    position: relative;
+    display: flex;
+    height: 1px;
+    width: 95%;
+    background: #4F7CAC;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.barChartDash .marcaChart .linha::before {
+    content: var(--valor);
+    width: 5%;
+    left: -6%;
+    text-align: right;
+    font-size: 14px;
+    position: absolute;
+}
+
+.barChartContainer .carrega {
+    position: absolute;
+    transition: all 350ms;
+    width: 150px;
+    margin-top: 100px;
+    opacity: 1;
+}
+
+.barChartContainer .carrega.loaded{
+    opacity: 0;
+    width: 50px;
+}
+
+.atualizado {
+    position: absolute;
+    width: 100%;
+    font-size: 14px !important;
+    text-align: right !important;
+}
+
+.donutChartContainer, .barChartContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background: #2e3442;
+    color: white;
+    overflow: hidden;
+    padding: 1em;
+    max-width: 50%;
+    border-radius: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, 
+                rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset,
+                rgb(64 87 146) 0 0 20px 5px inset;
+}
+
+.donutChartContainer.relPage, .barChartContainer.relPage {
+    box-shadow: none !important;
+    background: none !important;
+    max-height: 0;
+    padding: 0 !important;
+    opacity: 0;
+    transition: all 500ms;
+}
+
+.donutChartContainer.relPage.loaded, .barChartContainer.relPage.loaded {
+    max-height: 500px;
+    opacity: 1;
+    margin: 1em auto !important;
+}
+
+.barChartContainer {
+    min-width: max-content;
+    max-width: 60%;
+}
+
+.donutCarrega {
+    position: absolute;
+    display: flex;
+    width: 200px;
+    margin-top: 0px;
+    height: 100px;
+    padding: 0;
+    border-radius: 100px 100px 0 0;
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.donutCarrega img {
+    margin-top: 15%;
+    width: 75%;
+    height: 90%;
+}
+
+.donutChartContainer h4, .barChartContainer h4 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.donutChartContainer p, .barChartContainer p {
+    font-size: 15px;
+    text-align: center;
+}
+
+.donutChartContainer hr, .barChartContainer hr {
+    width: 100%;
+}
+
+.donutSemDados {
+    position: absolute;
+    padding: .5em;
+    color: black;
+    width: 100%;
+    z-index: 3;
+    opacity: 0;
+    transition: all 350ms;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    background: rgb(254,191,1);
+    background: -moz-linear-gradient(top,  rgba(254,191,1,1) 0%, rgba(254,191,1,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+    background: linear-gradient(to bottom,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febf01', endColorstr='#febf01',GradientType=0 );
+}
+
+.donutSemDados.show {
+    opacity: 1;
+}
+
+.donutSemDados h4{
+    margin:0;
+}
+
+.donutChart {
+    position: relative;
+    display: flex;
+    width: 200px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    border-radius: 100px 100px 0 0;
+    overflow: hidden;
+    border-top: 2px solid white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.donutChart::before,
+.donutChart::after {
+  position: absolute;
+}
+ 
+.donutChart::before {
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: 23px solid white;
+    border-bottom: none;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    box-shadow: rgb(64 87 146) 0px -20px 20px 16px inset;
+}
+
+.donutChart li {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border: 22px solid;
+    border-top: none;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    transform-origin: 50% 0;
+    animation-fill-mode: forwards;
+    animation-duration: .4s;
+    animation-timing-function: linear;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.donutChart li:nth-child(1) {
+    z-index: 4;
+    border-color: var(--donutChartColor1);
+    animation-name: rotate-one;
+}
+   
+.donutChart li:nth-child(2) {
+    z-index: 3;
+    border-color: var(--donutChartColor2);
+    animation-name: rotate-two;
+    animation-delay: .4s;
+}
+   
+.donutChart li:nth-child(3) {
+    z-index: 2;
+    border-color: var(--donutChartColor3);
+    animation-name: rotate-three;
+    animation-delay: .8s;
+}
+   
+.donutChart li:nth-child(4) {
+    z-index: 1;
+    border-color: var(--donutChartColor4);
+    animation-name: rotate-four;
+    animation-delay: 1.2s;
+}
+
+.donutChart span {
+    position: absolute;
+    font-size: .85rem;
+    color: white;
+    left: 5px;
+    backface-visibility: hidden;
+}
+   
+.donutChart li:nth-child(1) span {
+    transform: rotate(calc(var(--donutChartDeg1)/100 * -1 * 180deg));
+}
+   
+.donutChart li:nth-child(2) span {
+    transform: rotate(calc((var(--donutChartDeg1) + var(--donutChartDeg2))/100 * -1 * 180deg));
+}
+   
+.donutChart li:nth-child(3) span {
+    transform: rotate(calc((var(--donutChartDeg1) + var(--donutChartDeg2) + var(--donutChartDeg3))/100 * -1 * 180deg));
+}
+   
+.donutChart li:nth-child(4) span {
+    transform: rotate(calc((var(--donutChartDeg1) + var(--donutChartDeg2) + var(--donutChartDeg3) + var(--donutChartDeg4))/100 * -1 * 180deg));
+}
+
+.donutChartLegends {
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1em auto 0 auto;
+    padding: .5em;
+    font-size: 14px;
+    gap: .2em 1em;
+}
+
+.donutChartLegends li span {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0 .4em;
+    justify-content: flex-start;
+}
+
+.donutChartLegends li span::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: -.2em;
+    box-shadow: rgb(255 255 255) 0px 0px 0px 2px, rgb(255 255 255 / 36%) 1px -2px 0px inset;
+}
+
+.donutChartLegends li:nth-child(1) span::before {
+    background-color: var(--donutChartColor1);
+}
+   
+.donutChartLegends li:nth-child(2) span::before {
+    background-color: var(--donutChartColor2);
+}
+
+.donutChartLegends li:nth-child(3) span::before {
+    background-color: var(--donutChartColor3);
+}
+
+.donutChartLegends li:nth-child(4) span::before {
+    background-color: var(--donutChartColor4);
+}
+
+@keyframes rotate-one {
+    100% {
+        transform: rotate(calc(var(--donutChartDeg1)/100 * 180deg));
+    }
+}
+   
+@keyframes rotate-two {
+    0% {
+        transform: rotate(calc(var(--donutChartDeg1)/100 * 180deg));
+    }
+    100% {
+        transform: rotate(calc((var(--donutChartDeg1) + var(--donutChartDeg2))/100 * 180deg));
+    }
+}
+   
+@keyframes rotate-three {
+    0% {
+        transform: rotate(calc((var(--donutChartDeg1) + var(--donutChartDeg2))/100 * 180deg));
+    }
+    100% {
+        transform: rotate(calc((var(--donutChartDeg1) + var(--donutChartDeg2) + var(--donutChartDeg3))/100 * 180deg));
+    }
+}
+   
+@keyframes rotate-four {
+    0% {
+        transform: rotate(calc((var(--donutChartDeg1) + var(--donutChartDeg2) + var(--donutChartDeg3))/100 * 180deg));
+    }
+    100% {
+        transform: rotate(calc((var(--donutChartDeg1) + var(--donutChartDeg2) + var(--donutChartDeg3) + var(--donutChartDeg4))/100 * 180deg));
+    }
+}
+
+@media (min-width: 1025px){ 
+    .barChartDash .marcaChart .linha::before {
+        font-size: 12px;
+    }
+
+    .barChartDash .barras .barra, .barChartDash .datas li {
+        font-size: 10px;
+    }
+
+    .donutChartContainer h4, .barChartContainer h4 {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1600px){ 
+    .barChartDash .marcaChart .linha::before {
+        font-size: 14px;
+    }
+
+    .barChartDash .barras .barra {
+        font-size: 14px;
+    }
+
+    .barChartDash .datas li {
+        font-size: 12px;
+    }
+
+    .donutChartContainer h4, .barChartContainer h4 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1024px){
+
+    .chartsContainer {
+        flex-wrap: wrap;
+    }
+
+    .barChartDash .marcaChart .linha::before {
+        font-size: 10px;
+    }
+
+    .donutChartContainer h4, .barChartContainer h4 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px){ 
+
+    .barChartDash {
+        justify-content: center;
+    }
+
+    .barChartDash .barras .barra {
+        padding: .2em;
+        font-size: 12px;
+    }
+
+    .donutChartContainer, .barChartContainer {
+        min-width: min-content;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 600px){ 
+
+    .barChartDash .barras {
+        width: 100%;
+        left: 0%;
+    }
+
+    .barChartDash .marcaChart .linha {
+       width: 100%;
+    }
+
+    .barChartDash .marcaChart .linha::before {
+        display: none;
+    }
+
+    .barChartDash .barras .barra {
+        font-size: 10px;
+    }
+
+    .barChartDash .datas {
+        display: none;
+    }
+
+    .atualizado {
+        text-align: center !important;
+    }
+}

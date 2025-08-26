@@ -1,0 +1,84 @@
+<main class="py-4">
+    <div class="personContainer">
+        
+            <div class="card-body">
+                <div class="card-create-header">
+                    <h2 class="pageTitle"></h2>
+                    <div class="filterRelResultContainer">
+                        <input type="text" id="filterRelResult" class="form-control" placeholder="Digite aqui para filtrar os totens..."/>
+                    </div>
+                </div>
+                <hr>
+                <div style=" display: flex; flex-direction: column; flex-wrap: nowrap; align-items: center;">
+                    <table id="table" class="table table-striped customScroll" style="position: sticky; top:0; z-index:3; margin-bottom: 0; max-width:fit-content;">
+                        <thead>
+                            <tr class="headerTr applyWidth" style="background: #0468bf !important;">
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Link</th>
+                                <th scope="col">Qtd. Acessos <i title="Quantidade de acessos dentro do mês vigente" style="color:yellow; font-size:15px" class="fas fa-question-circle"></i></th>
+                                <th scope="col">
+                                    <a title="Novo Cadastro" href="/configuracoes/totemCreateUser/" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table id="table" class="table table-striped tBodyScroll" style="max-width:fit-content;">
+                        <tbody id="bodyTotem">
+                            <?php foreach($totem as $tot): ?>
+                                <tr class="toMark" id="<?php echo $tot['id'] ?>">
+                                    <td scope="col" style="width: 280px !important;"><?php echo utf8_decode(utf8_encode($tot['NOME'])); ?></td>
+                                    <td scope="col" style="width: 510px !important;">
+                                        <?php echo utf8_encode(BASE_URLB . 'passageiro/itinerario/' . $tot['LINKUSER']); ?>
+                                        <br>
+                                        <?php echo utf8_encode(BASE_URLB . 'passageiro/itinerarioEspecial/' . $tot['LINKUSER']); ?>
+                                    </td>
+                                    <td scope="col" style="width: 160px !important;">
+                                        <div class="pb-2 mb-2 d-flex flex-row flex-nowrap justify-content-between px-2 align-items-center" style="border-bottom: 1px solid white;">
+                                            <b><?php echo 'Normal: ' . $tot['acessos']; ?></b> 
+                                            <form action="/passageiro/statisticsTotemPassageiro" method="get">
+                                                <input type="hidden" name="groupId" value="<?php echo $tot["ID_ORIGIN"]; ?>"> 
+                                                <input type="hidden" name="nomegr" value="<?php echo $tot["NOME"] ?>">
+                                                <button title="Ver mais" class="btn btn-warning"><i class="fas fa-eye"></i></button>                    
+                                            </form>
+                                        </div>
+                                    
+                                        <div class="d-flex flex-row flex-nowrap justify-content-between px-2 align-items-center">
+                                            <b><?php echo 'Especial: ' . $tot['acessosEsp']; ?></b>
+                                            <form action="/passageiro/statisticsTotemPassageiroEspecial" method="get">
+                                                <input type="hidden" name="groupId" value="<?php echo $tot["ID_ORIGIN"]; ?>"> 
+                                                    <input type="hidden" name="nomegr" value="<?php echo $tot["NOME"] ?>">
+                                                <button title="Ver mais" class="btn btn-warning"><i class="fas fa-eye"></i></button>                    
+                                            </form>
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <div class="pb-2 mb-2 d-flex flex-row flex-nowrap justify-content-between px-2 align-items-center" style="border-bottom: 1px solid white;">
+                                            <span title="Copiar Link" class="btn btn-success mx-2" onclick="myFunctionCopy('textLink-<?php echo $tot['id'] ?>')" style="cursor:pointer"><i class="fa fa-copy" style="color:white"></i></span>
+                                            <a title="Editar" href="/configuracoes/totemEditUser?id=<?php echo $tot['id'] ?>" class="btn btn-primary mx-2 editIcon"><i class="fas fa-edit"></i></a>
+                                        </div>
+                                        <div class="d-flex flex-row flex-nowrap justify-content-between px-2 align-items-center">
+                                            <span title="Copiar Link Especial" class="btn btn-warning mx-2" onclick="myFunctionCopy('textLinkEsp-<?php echo $tot['id'] ?>')" style="cursor:pointer"><i class="fa fa-copy" style="color:white"></i></span>
+                                            <button title="Excluir" class="btn btn-danger mx-2 editIcon" onclick="confirmDelet('Link', '<?php echo $tot['NOME'] ?>', '/configuracoes/totemDelUser', <?php echo $tot['id'] ?>)"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                        <input class="textLinkUrl" type="text" value="<?php echo utf8_encode(BASE_URLB . 'passageiro/itinerario/' . $tot['LINKUSER']) ?>" id="textLink-<?php echo $tot['id'] ?>">
+                                        <input class="textLinkUrl" type="text" value="<?php echo utf8_encode(BASE_URLB . 'passageiro/itinerarioEspecial/' . $tot['LINKUSER']) ?>" id="textLinkEsp-<?php echo $tot['id'] ?>">
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <div class="wrapper1">
+                        <div class="div1"></div>
+                    </div>
+                    <div class="wrapper1after"></div>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function(e){ 
+        checkShowDownload('bodyTotem'); 
+    }
+</script>

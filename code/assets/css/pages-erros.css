@@ -1,0 +1,119 @@
+.errosContainer {
+    position: relative;
+    margin: 200px auto 0 auto;
+}
+
+.errosContainer.login {
+    margin: 150px auto 0 auto;
+}
+
+.errosContainer svg.errosSvg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -400px;
+    z-index: -1;
+  }
+
+.errosContainer .message-box {
+    height: 200px;
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    color: #FFF;
+    font-family: Roboto;
+    font-weight: 300;
+}
+
+.errosContainer .message-box h1 {
+    font-size: 80px;
+    line-height: 46px;
+    margin-bottom: 25px;
+    text-shadow: 0 1px 0 #4167a1, 0 2px 0 #4167a1, 0 3px 0 #4167a1, 0 4px 0 rgb(41 23 65 / 0%), 0 6px 1px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 30%), 0 3px 5px rgb(0 0 0 / 20%), 0 5px 10px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 20%), 0 20px 20px rgb(0 0 0 / 15%);
+}
+
+.errosContainer .buttons-con .action-link-wrap {
+    display: flex;
+    margin-top: 40px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+}
+
+.errosContainer .buttons-con .action-link-wrap a {
+    background: #430095;
+    padding: 8px 25px;
+    border-radius: 4px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.errosContainer .buttons-con .action-link-wrap a:hover {
+    background: #5A5C6C;
+    color: #fff;
+}
+
+.errosContainer #Polygon-1 ,
+.errosContainer #Polygon-2 ,
+.errosContainer #Polygon-3 ,
+.errosContainer #Polygon-4 ,
+.errosContainer #Polygon-5 {
+    animation: float 1s infinite ease-in-out alternate;
+}
+.errosContainer #Polygon-2 {
+    animation-delay: .2s; 
+}
+.errosContainer #Polygon-3 {
+    animation-delay: .4s; 
+}
+.errosContainer #Polygon-4 {
+    animation-delay: .6s; 
+}
+.errosContainer #Polygon-5 {
+    animation-delay: .8s; 
+}
+
+@keyframes float {
+    100% {
+    transform: translateY(20px);
+}
+
+}
+
+@media (max-width: 700px) {
+    
+    .errosContainer svg.errosSvg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -250px;
+        margin-left: -300px;
+    }
+
+    .errosContainer .message-box {
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .errosContainer .buttons-con .action-link-wrap {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 450px) {
+    
+    .errosContainer svg.errosSvg {
+        margin-left: -300px;
+    }
+}
